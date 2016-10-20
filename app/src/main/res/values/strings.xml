@@ -1,0 +1,9 @@
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="app_name">Game Gadget</string>
+    <string name="chronometer_initial_format"><xliff:g id="initial-format">%s</xliff:g></string>
+    <string name="chronometer_start">Start</string>
+    <string name="chronometer_stop">Stop</string>
+    <string name="chronometer_set_format">Set</string>
+    <string name="chronometer_clear_format">Clear</string>
+    <string name="chronometer_reset">Reset</string>
+</resources>
