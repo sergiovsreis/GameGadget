@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "422682623316",
+    "firebase_url": "https://gamegadget-35933.firebaseio.com",
+    "project_id": "gamegadget-35933",
+    "storage_bucket": "gamegadget-35933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422682623316:android:41a9daf92e13bb3f",
+        "android_client_info": {
+          "package_name": "com.android.tools.build"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422682623316-k86ditn8drdkfo7nqsgbbn7j9n73h6g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAIJl1CFZgUHvELAdWeZip8zZGvBgJXwc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

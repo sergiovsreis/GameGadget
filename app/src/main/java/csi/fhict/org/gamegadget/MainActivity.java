@@ -9,16 +9,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.firebase.client.Firebase;
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
     private static final String[]paths = {"Dungeons and Dragons", "Magic: The Gathering", "Bier Pong"};
 
+    private Firebase mRef;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Firebase.setAndroidContext(this);
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item,paths);
@@ -36,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        mRef = new Firebase("https://gamegadget-35933.firebaseio.com/");
+        Firebase mRefChild = mRef.child("Name");
+        mRefChild.setValue("Sergio");
+
 
     }
     public void whenSelected(int position){
