@@ -5,15 +5,19 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.Random;
 
@@ -22,6 +26,9 @@ public class Dice extends Activity {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
+    private Firebase ref = new Firebase("https://gamegadget-35933.firebaseio.com/");
+    private String dice1;
+    private String dice2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +58,54 @@ public class Dice extends Activity {
         mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
             @Override
             public void onShake() {
-                rotateDice();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        randomDice((ImageView) findViewById(R.id.imageView));
-                        randomDice((ImageView) findViewById(R.id.imageView2));
-                    }
-                }, 1000);
+
+
+                        Random rand = new Random();
+                        int  n1 = rand.nextInt(6) + 1;
+                        int  n2 = rand.nextInt(6) + 1;
+
+
+                        Firebase mRefChild = ref.child("1");
+                        mRefChild.setValue(n1);
+
+                        Firebase mRefChild2 = ref.child("2");
+                        mRefChild2.setValue(n2);
+
             }
         });
 
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                dice1 =  snapshot.child("1").getValue()+"";
+                 dice2 =  snapshot.child("2").getValue()+"";
+
+                rotateDice();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+
+                        changePicture((ImageView) findViewById(R.id.imageView), Integer.parseInt(dice1));
+                        changePicture((ImageView) findViewById(R.id.imageView2), Integer.parseInt(dice2));
+                    }
+                }, 1000);
+
+
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
     }
 
-    @Override
+
+
+
+
+        @Override
     public void onResume() {
         super.onResume();
         mSensorManager.registerListener(mShakeDetector, mAccelerometer,
@@ -114,13 +155,8 @@ public class Dice extends Activity {
 
 
 
-    private void randomDice(ImageView image)
+    private void changePicture(ImageView image, int n)
     {
-        Random rand = new Random();
-        int  n = rand.nextInt(6) + 1;
-
-
-
         switch(n){
             case 1:  image.setImageResource(R.drawable.d1);
                 break;

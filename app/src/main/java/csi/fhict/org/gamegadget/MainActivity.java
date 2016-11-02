@@ -44,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         mRef = new Firebase("https://gamegadget-35933.firebaseio.com/");
-        Firebase mRefChild = mRef.child("Name");
-        mRefChild.setValue("Sergio");
+        Firebase mRefChild = mRef.child("1");
+        mRefChild.setValue("4");
+
+        Firebase mRefChild2 = mRef.child("2");
+        mRefChild2.setValue("1");
 
 
     }
