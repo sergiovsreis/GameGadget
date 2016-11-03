@@ -1,9 +1,8 @@
 package csi.fhict.org.gamegadget;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,10 +13,10 @@ import com.firebase.client.Firebase;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
-    private static final String[]paths = {"Dungeons and Dragons", "Magic: The Gathering", "Bier Pong"};
+    private static final String[]paths = {"Dice", "Stopwatch", "HighScore","Counter"};
 
     private Firebase mRef;
-
+    private int page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                whenSelected(i);
+
+                page = i;
             }
 
             @Override
@@ -52,18 +52,26 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void whenSelected(int position){
 
-        switch (position) {
+
+    public void onClickBtn(View v)
+    {
+        switch (page) {
             case 0:
-                Log.i("test1", "test1");
-                break;
-            case 1:
                 Intent intent = new Intent(this, Dice.class);
                 startActivity(intent);
                 break;
+            case 1:
+                Intent intent2 = new Intent(this, BasicTimer.class);
+                startActivity(intent2);
+                break;
             case 2:
-                Log.i("test2", "test2");
+                Intent intent3 = new Intent(this, HiScores.class);
+                startActivity(intent3);
+                break;
+            case 3:
+                Intent intent4 = new Intent(this, Scores.class);
+                startActivity(intent4);
                 break;
 
         }

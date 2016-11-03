@@ -15,7 +15,9 @@
         android:text="Roll Die"
         android:id="@+id/button2"
         android:layout_alignTop="@+id/radioButton5"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/radiant_button"
+        android:textColor="@color/textWhite"/>
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -91,7 +93,9 @@
         android:id="@+id/button3"
         android:layout_below="@+id/radioButton6"
         android:layout_toRightOf="@+id/radioButton6"
-        android:layout_toEndOf="@+id/radioButton6" />
+        android:layout_toEndOf="@+id/radioButton6"
+        android:background="@drawable/radiant_button"
+        android:textColor="@color/textWhite"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"

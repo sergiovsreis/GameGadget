@@ -1,55 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:padding="4dip"
-    android:gravity="center_horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:padding="4dip"
+android:gravity="center_horizontal"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/pastelOrange">
 
-    <Chronometer android:id="@+id/chronometer"
-        android:format="@string/chronometer_initial_format"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:paddingBottom="30dip"
-        android:paddingTop="30dip"
-        />
+<Chronometer android:id="@+id/chronometer"
+    android:format="@string/chronometer_initial_format"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="0"
+    android:paddingBottom="30dip"
+    android:paddingTop="30dip"
+    android:text="00:00"
+    tools:text="00:00"
+    android:fontFamily="sans-serif"
+    android:textSize="36sp"
+    android:textStyle="normal|bold" />
 
     <Button android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/chronometer_start">
+        android:text="@string/chronometer_start"
+        android:background="@drawable/radiant_button"
+        android:textColor="@color/textWhite"
+        android:layout_marginBottom="10dp">
         <requestFocus />
     </Button>
 
     <Button android:id="@+id/stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/chronometer_stop">
+        android:text="@string/chronometer_stop"
+        android:background="@drawable/radiant_button"
+        android:textColor="@color/textWhite"
+        android:layout_marginBottom="10dp">
     </Button>
 
     <Button android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chronometer_reset">
-    </Button>
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/chronometer_reset"
+        android:background="@drawable/radiant_button"
+        android:textColor="@color/textWhite"
+        android:layout_marginBottom="10dp">
+</Button>
 
-    <Button android:id="@+id/set_format"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chronometer_set_format">
-    </Button>
-
-    <Button android:id="@+id/clear_format"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/chronometer_clear_format">
-    </Button>
-
-    <EditText
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText9"
-        android:layout_weight="0"
-        android:editable="true" />
+        android:layout_height="match_parent"
+        android:layout_weight="0">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText9"
+            android:layout_weight="0"
+            android:editable="true"
+            android:text="Notes..."
+            android:singleLine="false" />
+    </LinearLayout>
+
 </LinearLayout>

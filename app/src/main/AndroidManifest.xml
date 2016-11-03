@@ -22,6 +22,8 @@
         <activity android:name=".MTGscreen"   android:screenOrientation="portrait"/>
         <activity android:name=".BPscreen"  android:screenOrientation="portrait" />
         <activity android:name=".Dice"  android:screenOrientation="portrait"/>
+        <activity android:name=".HiScores"  android:screenOrientation="portrait"/>
+        <activity android:name=".Scores"  android:screenOrientation="portrait"/>
 
     </application>
 

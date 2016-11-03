@@ -58,8 +58,6 @@ public class Dice extends Activity {
         mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
             @Override
             public void onShake() {
-
-
                         Random rand = new Random();
                         int  n1 = rand.nextInt(6) + 1;
                         int  n2 = rand.nextInt(6) + 1;
@@ -70,7 +68,6 @@ public class Dice extends Activity {
 
                         Firebase mRefChild2 = ref.child("2");
                         mRefChild2.setValue(n2);
-
             }
         });
 
@@ -100,9 +97,6 @@ public class Dice extends Activity {
             }
         });
     }
-
-
-
 
 
         @Override
@@ -135,6 +129,8 @@ public class Dice extends Activity {
             image.startAnimation(animation);
             image2.startAnimation(animation);
         }
+
+
         Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         long[] pattern = {300,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100};
         vibe.vibrate(pattern, -1);

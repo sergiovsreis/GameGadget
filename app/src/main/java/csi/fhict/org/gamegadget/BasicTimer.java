@@ -1,7 +1,6 @@
 package csi.fhict.org.gamegadget;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -9,12 +8,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 
-
-
 public class BasicTimer extends Activity {
     Chronometer mChronometer;
     private long lastPause;
     private long Reset = 0;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +41,6 @@ public class BasicTimer extends Activity {
         button = (Button) findViewById(R.id.reset);
         if(button != null) {
             button.setOnClickListener(mResetListener);
-        }
-        button = (Button) findViewById(R.id.set_format);
-        if(button != null){
-
-            button.setOnClickListener(mSetFormatListener);
-        }
-        button = (Button) findViewById(R.id.clear_format);
-        if(button != null) {
-            button.setOnClickListener(mClearFormatListener);
         }
 
     }
@@ -85,21 +78,10 @@ public class BasicTimer extends Activity {
         }
     };
 
-    OnClickListener mSetFormatListener = new OnClickListener() {
-        public void onClick(View v) {
-            mChronometer.setFormat("Formatted time (%s)");
-        }
-    };
-
-    OnClickListener mClearFormatListener = new OnClickListener() {
-        public void onClick(View v) {
-            mChronometer.setFormat(null);
-        }
-    };
-
     @Override
     public void onStart() {
         super.onStart();
+
     }
 
     @Override
